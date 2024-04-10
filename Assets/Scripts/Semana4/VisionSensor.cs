@@ -220,7 +220,7 @@ public class VisionSensor : MonoBehaviour
         for (int i = 0; i < targetsInViewRadius.Length; i++)
         {
             Health health = targetsInViewRadius[i].GetComponent<Health>();
-            if (health != null && MainVision.IsInSight(health.AimOffset) && health.gameObject != this.gameObject)
+            if (health != null && MainVision.IsInSight(health.AimOffset) )
             {
                 EnemyView = health;
             }
@@ -236,7 +236,7 @@ public class VisionSensor : MonoBehaviour
     {
         MainVision.OnDrawGizmos();
         Gizmos.color = Color.red;
-        if (EnemyView != null && EnemyView.AimOffset.gameObject != this.gameObject)
+        if (EnemyView != null)
         {
             Gizmos.DrawLine(MainVision.Owner.AimOffset.position, EnemyView.AimOffset.position);
         }
