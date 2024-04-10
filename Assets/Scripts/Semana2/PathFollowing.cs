@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TypePath { Comer, Jugar, Banno, Dormir }
+public enum TypePath { Comer, Jugar, WC, Dormir }
 
 [System.Serializable]
 public class DataPath
@@ -37,7 +37,9 @@ public class PathFollowing : MonoBehaviour
 
 
     #endregion
-    void Start()
+
+    // Start is called before the first frame update
+    void Awake()
     {
         foreach (var path in datapaths)
         {
@@ -61,16 +63,17 @@ public class PathFollowing : MonoBehaviour
     }
     public void ChangePath(TypePath type)
     {
-
+        currentPath = type;
         indexcurrentPoint = 0;
-        currentPoint = GetPaths(type)[indexcurrentPoint];
+        currentPoint = GetPaths(currentPath)[indexcurrentPoint];
+
     }
     public Transform NextCurrentPointPath()
     {
 
 
         float distance = (transform.position - currentPoint.position).magnitude;
-        Debug.Log("distance: " + distance);
+        //Debug.Log("distance: " + distance);
         if (distance < stopdistance)
         {
             indexcurrentPoint++;
