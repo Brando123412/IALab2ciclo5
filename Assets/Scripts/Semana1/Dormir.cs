@@ -35,10 +35,12 @@ public class Dormir : State
             if (playerStats.energy == 100 && playerStats.hunger > 0)
             {
                 m_MachineState.NextState(TypeState.Jugar);
+                playerController.Move(TypePath.Jugar);
             }
             else if (playerStats.energy == 100 && playerStats.hunger == 0)
             {
                 m_MachineState.NextState(TypeState.Comer);
+                playerController.Move(TypePath.Comer);
             }
         }
         FrameRate += Time.deltaTime;

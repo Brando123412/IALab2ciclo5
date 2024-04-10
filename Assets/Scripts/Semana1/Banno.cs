@@ -37,14 +37,17 @@ public class Banno : State
             if (playerStats.bathroom == 0 && playerStats.energy > 0 && playerStats.hunger > 0)
             {
                 m_MachineState.NextState(TypeState.Jugar);
+                playerController.Move(TypePath.Jugar);
             }
             else if (playerStats.bathroom == 0 && playerStats.energy == 0)
             {
                 m_MachineState.NextState(TypeState.Dormir);
+                playerController.Move(TypePath.Dormir);
             }
             else if (playerStats.bathroom == 0 && playerStats.hunger == 0)
             {
                 m_MachineState.NextState(TypeState.Comer);
+                playerController.Move(TypePath.Comer);
             }
 
         }

@@ -32,12 +32,14 @@ public class Jugar : State
             if (playerStats.energy == 0)
             {
                 m_MachineState.NextState(TypeState.Dormir);
+                playerController.Move(TypePath.Dormir);
                 return;
             }
             playerStats.hunger = Mathf.Clamp(playerStats.hunger - Random.Range(4, 10), 0, 100);
             if (playerStats.hunger == 0)
             {
                 m_MachineState.NextState(TypeState.Comer);
+                playerController.Move(TypePath.Comer);
                 return;
             }
         }

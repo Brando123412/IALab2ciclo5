@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TypePath { Comer, Jugar, WC, Dormir }
+public enum TypePath { Comer, Jugar, Banno, Dormir }
 
 [System.Serializable]
 public class DataPath

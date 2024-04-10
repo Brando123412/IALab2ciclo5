@@ -15,7 +15,7 @@ public class Comer : State
     }
     public override void Enter()
     {
-
+        base.Enter();
     }
     public override void Execute()
     {
@@ -36,15 +36,18 @@ public class Comer : State
             if (playerStats.bathroom == 100)
             {
                 m_MachineState.NextState(TypeState.Banno);
+                playerController.Move(TypePath.Banno);
                 return;
             }
             if (playerStats.energy == 0 && playerStats.hunger == 100)
             {
                 m_MachineState.NextState(TypeState.Dormir);
+                playerController.Move(TypePath.Dormir);
             }
             else if (playerStats.hunger == 100 && playerStats.energy > 0)
             {
                 m_MachineState.NextState(TypeState.Jugar);
+                playerController.Move(TypePath.Jugar);
             }
         }
         FrameRate += Time.deltaTime;

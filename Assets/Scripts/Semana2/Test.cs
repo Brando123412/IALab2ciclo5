@@ -22,4 +22,9 @@ public class Test : MonoBehaviour
 
         _StreeringBehavior.Arrive();
     }
+
+    public void Move(TypePath type)
+    {
+        _PathFollowing.ChangePath(type);
+    }
 }

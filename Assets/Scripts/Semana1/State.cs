@@ -7,20 +7,22 @@ public class State : MonoBehaviour
 {
     public TypeState type;
     public MachineState m_MachineState;
-    [SerializeField] protected StatsPlayer playerStats;
+    public StatsPlayer playerStats;
 
-    [SerializeField]
-    protected float[] arrayTime = new float[10];
+    [SerializeField] protected float[] arrayTime = new float[10];
     protected float FrameRate;
-    protected int index = 0;
+    [SerializeField] protected int index = 0;
+
+    public Test playerController;
     public virtual void LoadComponent()
     {
         m_MachineState = GetComponent<MachineState>();
         playerStats = GetComponent<StatsPlayer>();
+        playerController = GetComponent<Test>();
     }
     public virtual void Enter()
     {
-
+        FrameRate = 0;
     }
     public virtual void Execute()
     {
